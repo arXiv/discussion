@@ -3,13 +3,63 @@
 * for giscus styles see arxiv-giscus-styles.css
 *
 */
-body {
-  margin: 0 !important;
-}
 .arxiv-logo {
   margin: 10px;
 }
 .arxiv-header {
   width: 100%;
-  background-color: #f9f7f7;
+}
+.arxiv-header h1 {
+  font-size: 18px;
+}
+.arxiv-header nav {
+  background: #222;
+  padding: 0 15px;
+}
+.arxiv-header a {
+  color: white;
+  text-decoration: none;
+}
+.arxiv-header .menu {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.arxiv-header .logo {
+  font-size: 20px;
+  padding: 7.5px 10px 7.5px 0;
+}
+.arxiv-header .item {
+  padding: 10px;
+  order: 3;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+.arxiv-header .item a {
+  display: block;
+  padding: 5px;
+}
+.arxiv-header .item a:hover,
+.arxiv-header .item a:hover::after {
+  color: #ccc;
+}
+@media all and (min-width: 960px) {
+  .menu {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background: none;
+  }
+}
+
+
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
