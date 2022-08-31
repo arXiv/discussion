@@ -2,9 +2,7 @@
 
 Let's get some pages here.
 
-<script 
-        
-        src="https://giscus.app/client.js"
+<script src="https://giscus.app/client.js"
         data-repo="arxiv/discussion"
         data-repo-id="R_kgDOHzoccw"
         data-category-id="DIC_kwDOHzocc84CQwr5"
@@ -17,4 +15,5 @@ Let's get some pages here.
         data-lang="en"
         crossorigin="anonymous"
         async>
+
 </script>
