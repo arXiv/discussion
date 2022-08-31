@@ -1,24 +1,34 @@
 /*
 * parent theme for header and footer, global styles
-* for giscus styles see arxiv-giscus-styles.css
 *
 */
-.arxiv-logo {
-  margin: 10px;
-}
 .arxiv-header {
   width: 100%;
 }
-.arxiv-header h1 {
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+/* Branding elements */
+.arxiv-header .brand {
+  float: left;
+  display: flex;
+  flex-wrap:nowrap;
+}
+.arxiv-header .brand h1 {
   font-size: 18px;
 }
+.arxiv-header .brand .arxiv-logo {
+  margin: 10px;
+}
+/* Navigation */
 .arxiv-header nav {
   background: #222;
   padding: 0 15px;
-}
-.arxiv-header a {
-  color: white;
-  text-decoration: none;
 }
 .arxiv-header .menu {
   list-style-type: none;
@@ -27,39 +37,25 @@
   justify-content: space-between;
   align-items: center;
 }
-.arxiv-header .logo {
-  font-size: 20px;
-  padding: 7.5px 10px 7.5px 0;
-}
-.arxiv-header .item {
+.arxiv-header .menu .item {
   padding: 10px;
   order: 3;
   width: 100%;
   text-align: center;
   display: block;
 }
-.arxiv-header .item a {
+.arxiv-header .menu .item a {
   display: block;
   padding: 5px;
 }
-.arxiv-header .item a:hover,
-.arxiv-header .item a:hover::after {
+.arxiv-header .menu .item a:hover,
+.arxiv-header .menu .item a:hover::after {
   color: #ccc;
 }
 @media all and (min-width: 960px) {
-  .menu {
+  .arxiv-header .menu {
     align-items: flex-start;
     flex-wrap: nowrap;
     background: none;
   }
-}
-
-
-.sr-only {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
 }
