@@ -27,19 +27,56 @@
     <h2>Title of the page goes here</h2>
     <p>description of the thing being commented on here</p>
 
-    <script src="https://giscus.app/client.js"
-            data-repo="arxiv/discussion"
-            data-repo-id="R_kgDOHzoccw"
-            data-category-id="DIC_kwDOHzocc84CQwr5"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-lang="en"
-            data-theme="https://giscus.app/themes/preferred_color_scheme.css"
-            crossorigin="anonymous"
-            async>
+    <script>
+      function getGiscusTheme() {
+        const quartoTheme = localStorage.getItem("quarto-color-scheme");
+        const giscusTheme = quartoTheme === "alternate" ? "dark" : "light";
+        return giscusTheme;
+      }
+
+      function setGiscusTheme() {
+        function sendMessage(message) {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: getGiscusTheme(),
+          },
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const giscusAttributes = {
+          "src": "https://giscus.app/client.js",
+          "data-repo": "arxiv/discussion",
+          "data-repo-id": "R_kgDOHzoccw",
+          "data-category-id": "DIC_kwDOHzocc84CQwr5",
+          "data-mapping": "pathname",
+          "data-strict": "0",
+          "data-reactions-enabled": "1",
+          "data-emit-metadata": "0",
+          "data-input-position": "bottom",
+          "data-lang": "en",
+          "data-theme": "https://giscus.app/themes/preferred_color_scheme.css",
+          "crossorigin": "anonymous",
+          "async": "",
+      };
+
+      // Dynamically create script tag
+      const giscusScript = document.createElement("script");
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.body.appendChild(giscusScript);
+
+      // Update giscus theme when theme switcher is clicked
+      const toggle = document.querySelector('.quarto-color-scheme-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', setGiscusTheme);
+      }
+    });
+
     </script>
+
     </body>
 </html>
