@@ -1,0 +1,15 @@
+/*
+* parent theme for header and footer, global styles
+* for giscus styles see arxiv-giscus-styles.css
+*
+*/
+body {
+  margin: 0 !important;
+}
+.arxiv-logo {
+  margin: 10px;
+}
+.arxiv-header {
+  width: 100%;
+  background-color: #f9f7f7;
+}
