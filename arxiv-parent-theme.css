@@ -21,6 +21,16 @@ a:hover {
   flex-direction:column;
   border-bottom: 2px solid #b31b1b;
 }
+.arxiv-content p {
+  font-family: freight-text-pro, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.arxiv-content h2 {
+  font-family: freight-sans-pro, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
 .sr-only {
   position:absolute;
   left:-10000px;
@@ -38,8 +48,9 @@ a:hover {
 }
 .arxiv-header .brand h1 {
   font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-family: xenara, sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 .arxiv-header .brand .arxiv-logo {
   margin: 0 10px;
