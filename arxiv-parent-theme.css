@@ -21,6 +21,11 @@ a:hover {
   flex-direction:column;
   border-bottom: 2px solid #b31b1b;
 }
+.arxiv-content {
+  border-bottom: 2px solid #f9f7f7;
+  padding-bottom: 15px;
+  margin-bottom: -13px;
+}
 .arxiv-content p {
   font-family: freight-text-pro, serif;
   font-style: normal;
@@ -47,13 +52,17 @@ a:hover {
   margin: 0 auto;
 }
 .arxiv-header .brand h1 {
-  font-size: 18px;
+  font-size: 20px;
   font-family: xenara, sans-serif;
   font-style: normal;
   font-weight: 700;
 }
+.arxiv-header .brand h1 span {
+  font-weight: 400;
+  display: none;
+}
 .arxiv-header .brand .arxiv-logo {
-  margin: 0 10px;
+  margin: 0 5px 0 10px;
 }
 /* Navigation */
 .arxiv-header nav {
@@ -96,5 +105,8 @@ a:hover {
   }
   .arxiv-header .brand {
     margin: 0;
+  }
+  .arxiv-header .brand h1 span {
+    display: inline;
   }
 }
