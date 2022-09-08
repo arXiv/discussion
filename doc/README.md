@@ -8,6 +8,8 @@
 
 Let's get some pages here.
 
+<a href="test.html">test.html</a>
+
 <script src="https://giscus.app/client.js"
         data-repo="arxiv/discussion"
         data-repo-id="R_kgDOHzoccw"
