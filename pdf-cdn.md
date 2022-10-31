@@ -19,7 +19,7 @@ probably a policy decision. We could relax 7 but it doesn't seem too
 relevant.
 
 ## Considerations
-###Current version
+### Current version
 There are two main kinds of URLs we need to handle,
 the current version URLs and the versioned URLs. The current version
 URLs have filenames like `1234.12345.pdf` that lack the vN version
