@@ -39,8 +39,8 @@ version number: 42421.
 427000 bytes/s for successful PDFs over a 1h window on 2022-10-28.
 
 ### Revisions
-Over the whole corpus about 50% of papers have
-revisions. Over the month of 2022-11 about 8% have revisions.
+Over the whole corpus about 50% of papers have revisions. About 8% of
+the articles submitted in 2022-10 had versions during the same month.
 
 ### Out of band changes
 There are infrequent changes made outside of the versioning
@@ -136,7 +136,7 @@ connection+ssl: 95ms.
 
 These times are not averages, they are for single requests.
 
-## Proposal that meets all goals
+## Proposal that meets all goals (Rejected)
 It seems the goal of no-code conflicts with goals of no redundancy and
 current version. I'm not finding a way with the Google products to
 make this happen without having a service.
@@ -162,10 +162,19 @@ the LB.
 
 I don't see an API that says `put_content_at_CDN_key(key, content)`. We can think of a service as that API. The service gets a request from the CDN and then it can be programmed to put any content there.
 
-I suggest that the goal of no-code, only-products forces limitations
-on what URL to file mappings are possible due to the limitations of
-the GCP products. A small app the mediates this is a large gain of
-flexibility for a small additional complexity.
+I suggest we reject this proposal. Reason #1 is the goal of no-code,
+GCP only-products forces limitations on what URL to file mappings are
+possible due to the limitations of the GCP products. Reason #2 is We
+would end up with a system where the state of the bucket was constantly
+changing to support the URL mapping. The storage and the keys used
+should be limited to the concerns of storage and not have to also
+carry the concerns of URL mapping. Reason #3 it would be easier to
+test an app returns the correct file for a URL than to test
+CDN/LB/GS/obj-naming-conventions.
+
+A small app the mediates the URL to object mapping is a large gain of
+flexibility for little additional complexity. The state of the objects
+in the GS becomes much simpler.
 
 ## End Game Proposal 
 This is a proposal for what would be ideal without any legacy concerns other than URL patterns.
