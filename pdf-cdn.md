@@ -141,17 +141,24 @@ It seems the goal of no-code conflicts with goals of no redundancy and
 current version. In discussing this Nov. 2 2022 Charles F. suggested
 we relax the redundancy goal.
 
-1. PDFs in GS arranged with the keys in a way that allows them to be
-   served as a web site with the expected URL paths. Redundent files would be stored
-   if the same content needed to be served 
-   ex
+The mappings look like:
 
+    Served URL                                GS URL
     https//arxiv.org/pdfs/1111.22222.pdf   -> gs://pdf-bucket/pdf/1111.22222.pdf
     https//arxiv.org/pdfs/1111.22222v1.pdf -> gs://pdf-bucket/pdf/1111.22222v1.pdf
     https//arxiv.org/pdfs/1111.22222v2.pdf -> gs://pdf-bucket/pdf/1111.22222v2.pdf
-    
+
+And in the case of v2 being the most recent version, 1111.22222.pdf
+would be the same content as 1111.22222v2.pdf
+
+1. PDFs in GS arranged with the keys in a way that allows them to be
+   served as a web site with the expected URL paths. Redundent files
+   would be stored if the same content needed to be served from
+   different paths.
 1. The bucket these are in is set as "serve as public website"
 1. A LB and CDN is setup to serve these at some domain name.
+1. A sync service would copy the content to the correct GS bucket
+   locations at announce time.
 
 I don't see an API that says `put_content_at_CDN_key(key,
 content)`. We can think of a service as that API. The service gets a
