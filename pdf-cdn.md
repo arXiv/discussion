@@ -136,63 +136,50 @@ connection+ssl: 95ms.
 
 These times are not averages, they are for single requests.
 
-## Proposal that meets all goals (Rejected)
+## Proposal #1
 It seems the goal of no-code conflicts with goals of no redundancy and
-current version. I'm not finding a way with the Google products to
-make this happen without having a service.
+current version. In discussing this Nov. 2 2022 Charles F. suggested
+we relax the redundancy goal.
 
-The closest I can see is: We serve the PDFs from a Google Storage
-bucket, via a load balancer and CDN. The objects in the bucket are
-arranged so a request for the current version gets the PDF that is
-current. This object will need to be updated as the paper is revised.
+1. PDFs in GS arranged with the keys in a way that allows them to be
+   served as a web site with the expected URL paths. Redundent files would be stored
+   if the same content needed to be served 
+   ex
 
-Consider a paper with 3 versions we'd have to have the GS bucket like this:
+    https//arxiv.org/pdfs/1111.22222.pdf   -> gs://pdf-bucket/pdf/1111.22222.pdf
+    https//arxiv.org/pdfs/1111.22222v1.pdf -> gs://pdf-bucket/pdf/1111.22222v1.pdf
+    https//arxiv.org/pdfs/1111.22222v2.pdf -> gs://pdf-bucket/pdf/1111.22222v2.pdf
+    
+1. The bucket these are in is set as "serve as public website"
+1. A LB and CDN is setup to serve these at some domain name.
 
-    https//pdf.arxiv.org/pdfs/1111.22222.pdf   | gs://pdf-bucket/pdfs/1111.22222.pdf   |
-    https//pdf.arxiv.org/pdfs/1111.22222v1.pdf | gs://pdf-bucket/pdfs/1111.22222v1.pdf |
-    https//pdf.arxiv.org/pdfs/1111.22222v2.pdf | gs://pdf-bucket/pdfs/1111.22222v2.pdf |
-    https//pdf.arxiv.org/pdfs/1111.22222v3.pdf | gs://pdf-bucket/pdfs/1111.22222v3.pdf |
+I don't see an API that says `put_content_at_CDN_key(key,
+content)`. We can think of a service as that API. The service gets a
+request from the CDN and then it can be programmed to put any content
+there.
 
-This would meet all goals except redundant copies and not all of the
-long standing URL patterns.
+Brian Caruso initially suggested we reject this proposal. A small app
+the mediates the URL to object mapping is a large gain of flexibility
+for little additional complexity. The state of the objects in the GS
+becomes much simpler.
 
-To meet 6 maintaining long standing URL patterns we'd need more
-redundancy. This is due to the lack of flexibility in URL mapping in
-the LB. 
-
-I don't see an API that says `put_content_at_CDN_key(key, content)`. We can think of a service as that API. The service gets a request from the CDN and then it can be programmed to put any content there.
-
-I suggest we reject this proposal. Reason #1 is the goal of no-code,
-GCP only-products forces limitations on what URL to file mappings are
-possible due to the limitations of the GCP products. Reason #2 is We
-would end up with a system where the state of the bucket was constantly
-changing to support the URL mapping. The storage and the keys used
-should be limited to the concerns of storage and not have to also
-carry the concerns of URL mapping. Reason #3 it would be easier to
-test an app returns the correct file for a URL than to test
-CDN/LB/GS/obj-naming-conventions.
-
-A small app the mediates the URL to object mapping is a large gain of
-flexibility for little additional complexity. The state of the objects
-in the GS becomes much simpler.
-
-## End Game Proposal 
-This is a proposal for what would be ideal without any legacy concerns other than URL patterns.
-
-1. PDFs in GS with version numbers
-1. arxiv.org presents URLs to PDFs like https://arxiv.org/pdf/1234.12345.pdf
-1. The `/pdf` path URL mapped at the LB a backend with a CDN `pdf-service` an app running on Cloud Run
-1. That service goes to the GS and streams the content back to the client
-1. Cache warming for new PDFs as part of the announce process
-
-This meets all goals except for 1 no-code.
+1. The goal of no-code, GCP only-products forces limitations on what
+   URL to file mappings are possible due to the limitations of the GCP
+   products.
+1. We would end up with a system where the state of the bucket was
+   constantly changing to support the URL mapping. The storage and the
+   keys used should be limited to the concerns of storage and not have
+   to also carry the concerns of URL mapping.
+1. It would be easier to test that an app returns the correct file for
+   a URL than to test CDN/LB/GS/obj-naming-conventions.
 
 ## Migration proposal
 This is a proposal to use the existing `arxiv.org` infrastructure at
 Cornell but serve the PDFs from a CDN as an intermediate step towards
 an all on cloud stance.
 
-1. Implement the End Game Proposal but have it at a host name like `cloud.arxiv.org`
+1. Implement the one of the proposals but have it at a host name like
+   `cloud.arxiv.org`
 1. At announce time, build PDFs and sync to Google
 1. Add `/pdf` path to arxiv-browse that uses this logic
     1. Check if CDN is fresh
@@ -201,6 +188,20 @@ an all on cloud stance.
 
 The check of CDN freshness could be cached. The reverse proxy avoids
 an unnecessary HTTP redirect on the non-fresh path.
+
+## Proposal #2 PDF service
+This is a proposal for what would be ideal without any legacy concerns
+other than URL patterns.
+
+1. PDFs in GS with version numbers
+1. arxiv.org presents URLs to PDFs like https://arxiv.org/pdf/1234.12345.pdf
+1. The `/pdf` path URL mapped at the LB a backend with a CDN `pdf-service` an app running on Cloud Run
+1. That service goes to the GS and streams the content back to the client
+1. Cache warming for new PDFs as part of the announce process
+
+This meets all goals except for 1 no-code. This proposal was rejected
+due to the decision to relax the redundency goal and that we could
+move from proposal #1 to #2 in the future if needed.
 
 ## Caching CDN Freshness
 The CDN freshness will be checked from Cornell by doing a HEAD request
