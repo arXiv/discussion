@@ -4,6 +4,8 @@
 
 Let's get some pages here.
 
+Test a checkin. Did https://giscus.app/client.js get disconnected?
+
 <a href="test.html">test.html</a>
 
 <script src="https://giscus.app/client.js"
