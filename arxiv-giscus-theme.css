@@ -1,0 +1,112 @@
+/*
+* parent theme for header and footer, global styles
+*
+*/
+body {
+  font-family: freight-sans-pro, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  margin: 0 20px 20px 20px;
+}
+a {
+  color: #1f5e96;
+}
+a:hover {
+  color: #6b6459;
+}
+.arxiv-header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  border-bottom: 2px solid #b31b1b;
+}
+.arxiv-content {
+  border-bottom: 2px solid #f9f7f7;
+  padding-bottom: 15px;
+  margin-bottom: -13px;
+}
+.arxiv-content p {
+  font-family: freight-text-pro, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.arxiv-content h2 {
+  font-family: freight-sans-pro, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+/* Branding elements */
+.arxiv-header .brand {
+  display: flex;
+  flex-wrap:nowrap;
+  align-items: center;
+  margin: 0 auto;
+}
+.arxiv-header .brand h1 {
+  font-size: 20px;
+  font-family: xenara, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+.arxiv-header .brand h1 span {
+  font-weight: 400;
+  display: none;
+}
+.arxiv-header .brand .arxiv-logo {
+  margin: 0 5px 0 10px;
+}
+/* Navigation */
+.arxiv-header nav {
+  padding: 0;
+  margin:0;
+}
+.arxiv-header .menu {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center
+  margin:0;
+  padding:0;
+}
+.arxiv-header .menu .item {
+  padding: 10px;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.arxiv-header .menu .item a {
+  padding: 5px;
+}
+@media all and (min-width: 960px) {
+  .arxiv-header {
+    justify-content: space-between;
+    flex-wrap:nowrap;
+    align-items: center;
+    flex-direction: row;
+  }
+  .arxiv-header .menu {
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+    margin: 0;
+  }
+  .arxiv-header .menu .item {
+    width: auto;
+  }
+  .arxiv-header .brand {
+    margin: 0;
+  }
+  .arxiv-header .brand h1 span {
+    display: inline;
+  }
+}
