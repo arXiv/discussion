@@ -15,3 +15,19 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+<script src="https://giscus.app/client.js"
+        data-repo="arxiv/discussion/docs"
+        data-repo-id="R_kgDOHzoccw"
+        data-category-id="DIC_kwDOHzocc84CQwr5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="https://arxiv.github.io/discussion/arxiv-giscus-theme.css"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+
+</script>
