@@ -11,6 +11,10 @@ plugins:
 theme:
   name: material
   logo: arxiv-logomark-small.svg
+  palette:
+    scheme: default
+    scheme: slate
+    scheme: indigo
 #  custom_dir: overrides
 # extra_css:
 #   - stylesheets/extra.css

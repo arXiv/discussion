@@ -1,3 +1,21 @@
+<div class="mdx-switch" style="text-align: right"> 
+        <button data-md-color-scheme="default">default</button>
+        <button data-md-color-scheme="slate">slate</button>
+        <button data-md-color-scheme="slate">indigo</button>
+ </div>
+
+<script>
+  var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+  buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+      var attr = this.getAttribute("data-md-color-scheme")
+      document.body.setAttribute("data-md-color-scheme", attr)
+      var name = document.querySelector("#__code_1 code span.l")
+      name.textContent = attr
+    })
+  })
+</script>
+
 # Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
