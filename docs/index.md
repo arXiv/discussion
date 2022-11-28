@@ -16,6 +16,8 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
+giscus should show up below here
+
 <script src="https://giscus.app/client.js"
         data-repo="arxiv/discussion/docs"
         data-repo-id="R_kgDOHzoccw"
