@@ -12,8 +12,8 @@ theme:
   name: material
   logo: arxiv-logomark-small.svg
 #  custom_dir: overrides
-extra_css:
-  - stylesheets/extra.css
+# extra_css:
+#   - stylesheets/extra.css
 
 repo_name: GitHub
 repo_url: https://github.com/arXiv/discussion/docs
