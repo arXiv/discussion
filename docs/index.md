@@ -27,7 +27,7 @@ giscus should show up below here
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://arxiv.github.io/discussion/arxiv-giscus-theme.css"
+        data-theme="https://arxiv.github.io/discussion/docs/arxiv-giscus-theme.css"
         data-lang="en"
         crossorigin="anonymous"
         async>
