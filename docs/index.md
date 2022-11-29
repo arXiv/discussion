@@ -1,7 +1,12 @@
+<!-- 
+  Script for letting the user switch.
+  Commented out so we can try the 'prefers-color-scheme' setting
+  to follow the user's browser preference instead
+
 <div class="mdx-switch" style="text-align: right"> 
         <button data-md-color-scheme="default">default</button>
         <button data-md-color-scheme="slate">slate</button>
-        <button data-md-color-scheme="slate">indigo</button>
+        <button data-md-color-scheme="indigo">indigo</button>
  </div>
 
 <script>
@@ -14,7 +19,7 @@
       name.textContent = attr
     })
   })
-</script>
+</script> -->
 
 # Welcome to MkDocs
 
