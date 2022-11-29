@@ -45,9 +45,28 @@ giscus should show up below here
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://arxiv.github.io/discussion/docs/arxiv-giscus-theme.css"
         data-lang="en"
         crossorigin="anonymous"
         async>
 
 </script>
+
+
+<!--
+  The above, with the data-theme still present:
+
+ <script src="https://giscus.app/client.js"
+        data-repo="arxiv/discussion/docs"
+        data-repo-id="R_kgDOHzoccw"
+        data-category-id="DIC_kwDOHzocc84CQwr5"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="https://arxiv.github.io/discussion/docs/arxiv-giscus-theme.css"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+
+</script> -->
