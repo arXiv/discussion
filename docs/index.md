@@ -73,6 +73,7 @@ giscus should show up below here
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
+        data-theme="https://giscus.app/themes/preferred_color_scheme.css"
         data-lang="en"
         crossorigin="anonymous"
         async>
