@@ -14,6 +14,9 @@ a {
 a:hover {
   color: #6b6459;
 }
+:root {
+  --color-fg-default: --md-default-fg-color;
+}
 .arxiv-header {
   width: 100%;
   display: flex;

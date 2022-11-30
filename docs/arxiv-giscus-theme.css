@@ -87,6 +87,9 @@ a:hover {
 .arxiv-header .menu .item a {
   padding: 5px;
 }
+.color-text-primary {
+  color: var(--md-typeset-color),var(--color-text-primary);
+}
 @media all and (min-width: 960px) {
   .arxiv-header {
     justify-content: space-between;
