@@ -87,7 +87,7 @@ a:hover {
 .arxiv-header .menu .item a {
   padding: 5px;
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 600px) {
   .arxiv-header {
     justify-content: space-between;
     flex-wrap:nowrap;
