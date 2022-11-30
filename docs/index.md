@@ -65,7 +65,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 giscus should show up below here
 
 <script src="https://giscus.app/client.js"
-        data-repo="arxiv/discussion/docs"
+        data-repo="arxiv/discussion"
         data-repo-id="R_kgDOHzoccw"
         data-category-id="DIC_kwDOHzocc84CQwr5"
         data-mapping="pathname"
