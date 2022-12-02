@@ -1,45 +1,3 @@
-<!-- 
-  Script for letting the user switch.
-  Commented out so we can try the 'prefers-color-scheme' setting
-  to follow the user's browser preference instead
-
-<div class="mdx-switch" style="text-align: right"> 
-        <button data-md-color-scheme="default">default</button>
-        <button data-md-color-scheme="slate">slate</button>
-        <button data-md-color-scheme="indigo">indigo</button>
- </div>
-
-<script>
-  var buttons = document.querySelectorAll("button[data-md-color-scheme]")
-  buttons.forEach(function(button) {
-    button.addEventListener("click", function() {
-      var attr = this.getAttribute("data-md-color-scheme")
-      document.body.setAttribute("data-md-color-scheme", attr)
-      var name = document.querySelector("#__code_1 code span.l")
-      name.textContent = attr
-    })
-  })
-</script> -->
-
-<script>
-// import * as DarkModeToggle from 'dark-mode-toggle.mjs';
-
-// const toggle = document.querySelector('dark-mode-toggle');
-// const nav_element = document.body;
-
-// // Set or remove the `dark` class the first time.
-// toggle.mode === 'dark'
-//   ? body.classList.add('dark')
-//   : body.classList.remove('dark');
-
-// // Listen for toggle changes (which includes `prefers-color-scheme` changes)
-// // and toggle the `dark` class accordingly.
-// toggle.addEventListener('colorschemechange', () => {
-//   body.classList.toggle('dark', toggle.mode === 'dark');
-// });  
-
-</script>
-
 # Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
@@ -60,6 +18,12 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 giscus should show up below here
 
+
+<!-- <script src="fixcolortheme.js">
+
+</script>
+
+
 <script src="https://giscus.app/client.js"
         data-repo="arxiv/discussion"
         data-repo-id="R_kgDOHzoccw"
@@ -74,98 +38,5 @@ giscus should show up below here
         crossorigin="anonymous"
         async>
 
-</script>
-
-
-
-<!-- <script>
-
-  // code to make giscus theme track light or dark
-
-  function getGiscusTheme() {
-    const quartoTheme = localStorage.getItem("quarto-color-scheme");
-    const giscusTheme = quartoTheme === "alternate" ? "dark" : "light";
-    return giscusTheme;
-  }
-
-  // call this with 'dark' or 'light'
-  function setGiscusTheme(color) {
-    function sendMessage(message) {
-      const iframe = document.querySelector('iframe.giscus-frame');
-      if (!iframe) return;
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-    }
-    sendMessage({
-      alert(color);
-      setConfig: {
-        theme: color,
-      },
-    });
-  }
-
-  function find_md_color() {
-        // Get a document element we know shoud exist in the material theme
-    main = document.getElementsByClassName('md-main')[0];
-    color = window.getComputedStyle(main).getPropertyValue('--md-typeset-color');
-    alert("find_md_color " + color)
-    return color;
-  }
-
-  function is_dark(color) {
-    const r = color >>> 16 & 0xff;  // 0x12
-    const g = color >>> 8 & 0xff;   // 0x34
-    const b = color & 0xff;         // 0x56
-    // if the text is light, the theme must be dark
-    if (r < 0x80 && g < 0x80 & b < 0x80) { return 1 }
-  }
-
-  function set_giscus_theme() {
-    // this might fail from calling it before things are ready,
-    // let's not spam the console
-    try {
-      color = find_md_color()
-      if (is_dark(color)) setGiscusTheme('dark')
-      else setGiscusTheme('light')
-    }
-    finally {};
-  }
-
-  // In the onreadystatechange of the parent document, set up the 
-  // listener for the onload event of the contained frame!
-  // We can't access readystatechange inside the frame to cross-origin security
-  document.onreadystatechange = () => {
-    if (document.readyState === "complete") {
-      const ifrm = document.querySelector('iframe.giscus-frame');
-      ifrm.onload = () => {
-        if (iframe.readyState === "complete") {
-          alert("Ready state complete");
-          set_giscus_theme();
-        }
-      };
-      // just in case it's ready now ... 
-      set_giscus_theme();
-    }
-  };
-  
-  // this needs to be replaced by catching the change on the material theme button
-  // that changes the theme, since that doesn't go through the brower's theme
-  const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-  darkThemeMq.addListener(e => {
-    // tracking the system theme was problematic, as the material theme doesn't
-    // seem to always match it. So we just try to match whether material is light or dark.
-    set_giscus_theme();
-    // if (e.matches) {
-    //   // Theme set to dark.
-    //   setGiscusTheme('dark')
-    // } else {
-    //     setGiscusTheme('light')
-    //   }
-  });
-
-  const change_theme_button = document.getElementById('__palette_1');
-  change_theme_button.addEventListener('change') function() {
-    if (change_theme_button.checked) 
-    set_giscus_theme();
-  });
-
 </script> -->
+

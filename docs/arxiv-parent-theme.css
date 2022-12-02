@@ -2,6 +2,10 @@
 * parent theme for header and footer, global styles
 *
 */
+:root {
+  --md-default-bg-color--dark: hsla(30,0%,100%,.7);
+}
+
 body {
   font-family: freight-sans-pro, sans-serif;
   font-style: normal;

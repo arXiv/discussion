@@ -27,9 +27,13 @@ theme:
       #   icon: material/brightness-4
       #   name: Switch to light mode
 
-#  custom_dir: overrides
-# extra_css:
-#   - stylesheets/extra.css
+extra_javascript:
+  - fixcolortheme.js
+  - load-giscus.js
+  
+# custom_dir: overrides
+extra_css:
+  - arxiv-parent-theme.css
 
 repo_name: GitHub
 repo_url: https://github.com/arXiv/discussion/tree/master/docs
