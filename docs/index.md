@@ -69,14 +69,16 @@ giscus should show up below here
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://arxiv.github.io/discussion/docs/arxiv-giscus-theme.css"
+        data-theme="themes/preferred_color_scheme.css"
         data-lang="en"
         crossorigin="anonymous"
         async>
 
 </script>
 
-<script>
+
+
+<!-- <script>
 
   // code to make giscus theme track light or dark
 
@@ -86,23 +88,26 @@ giscus should show up below here
     return giscusTheme;
   }
 
-  function setGiscusTheme() {
+  // call this with 'dark' or 'light'
+  function setGiscusTheme(color) {
     function sendMessage(message) {
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;
       iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
     }
     sendMessage({
+      alert(color);
       setConfig: {
-        theme: getGiscusTheme(),
+        theme: color,
       },
     });
   }
 
   function find_md_color() {
-    // Get a document element we know shoud exist in the material theme
+        // Get a document element we know shoud exist in the material theme
     main = document.getElementsByClassName('md-main')[0];
     color = window.getComputedStyle(main).getPropertyValue('--md-typeset-color');
+    alert("find_md_color " + color)
     return color;
   }
 
@@ -125,11 +130,12 @@ giscus should show up below here
     finally {};
   }
 
-  // In the onreadystatechange of the parent document, set up the onreadystate
-  // listener for the contained frame!
+  // In the onreadystatechange of the parent document, set up the 
+  // listener for the onload event of the contained frame!
+  // We can't access readystatechange inside the frame to cross-origin security
   document.onreadystatechange = () => {
     if (document.readyState === "complete") {
-      ifrm = document.querySelector('iframe.giscus-frame');
+      const ifrm = document.querySelector('iframe.giscus-frame');
       ifrm.onload = () => {
         if (iframe.readyState === "complete") {
           alert("Ready state complete");
@@ -141,13 +147,13 @@ giscus should show up below here
     }
   };
   
-
-
+  // this needs to be replaced by catching the change on the material theme button
+  // that changes the theme, since that doesn't go through the brower's theme
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
   darkThemeMq.addListener(e => {
     // tracking the system theme was problematic, as the material theme doesn't
     // seem to always match it. So we just try to match whether material is light or dark.
-    set_discus_theme();
+    set_giscus_theme();
     // if (e.matches) {
     //   // Theme set to dark.
     //   setGiscusTheme('dark')
@@ -156,24 +162,10 @@ giscus should show up below here
     //   }
   });
 
-</script>
-
-
-<!--
-  The above, with the data-theme still present:
-
- <script src="https://giscus.app/client.js"
-        data-repo="arxiv/discussion/docs"
-        data-repo-id="R_kgDOHzoccw"
-        data-category-id="DIC_kwDOHzocc84CQwr5"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="https://arxiv.github.io/discussion/docs/arxiv-giscus-theme.css"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
+  const change_theme_button = document.getElementById('__palette_1');
+  change_theme_button.addEventListener('change') function() {
+    if (change_theme_button.checked) 
+    set_giscus_theme();
+  });
 
 </script> -->
