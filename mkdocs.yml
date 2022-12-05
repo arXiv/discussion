@@ -33,7 +33,10 @@ extra_javascript:
   
 # custom_dir: overrides
 extra_css:
+  - https://fonts.googleapis.com/css?family=IBM Plex Sans
+  - https://fonts.googleapis.com/css?family=Catamaran
   - arxiv-parent-theme.css
+
 
 repo_name: GitHub
 repo_url: https://github.com/arXiv/discussion/tree/master/docs

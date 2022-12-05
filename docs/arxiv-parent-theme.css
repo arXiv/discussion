@@ -2,19 +2,47 @@
 * parent theme for header and footer, global styles
 *
 */
-:root {
-  --md-default-bg-color--dark: hsla(30,0%,100%,.7);
+
+:root > * {
+  /* --md-primary-fg-color:        #b31b1b;
+  --md-primary-fg-color--light: #fb595a;
+  --md-primary-fg-color--dark:  #6b6459; */
+  --md-typeset-a-color: #849bf7;
+  --md-default-bg-color--dark: #201f22;
+  --md-text-font-family:"IBM Plex Sans", Roboto,-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
 }
 
 body {
-  font-family: freight-sans-pro, sans-serif;
+  /* font-family: catamaran, sans-serif; */
   font-style: normal;
   font-weight: 300;
   margin: 0 20px 20px 20px;
 }
-a {
-  color: #1f5e96;
+
+@media (prefers-color-scheme: light) {
+  a {
+    color: #263799;
+  }
+  a:visited {
+    color: #d418d4;
+  }
+  /* I don't really understand this --passed. */
+  .md-nav__link--passed {
+    color: #263799;
+  }
 }
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: var(--md-typeset-a-color)
+  }
+  a:visited {
+    color: #913691
+  }
+}
+
+
+
 a:hover {
   color: #6b6459;
 }
