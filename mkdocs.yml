@@ -39,5 +39,5 @@ extra_css:
 
 
 repo_name: GitHub
-repo_url: https://github.com/arXiv/discussion/tree/master/docs
-edit_uri: blob/master/mkdocs/docs
+repo_url: https://github.com/arXiv/discussion/
+edit_uri: blob/master/docs/

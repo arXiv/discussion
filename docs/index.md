@@ -1,27 +1,21 @@
-# Welcome to MkDocs
+# Welcome to arXiv-CE
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+CE stands for Cloud Edition.
 
-## Commands
+This is the public documentation site for the project to move arXiv to the cloud. We will use this place to share our plans with the arXiv community, and also seek feedback and suggestions from the community. We will try to keep this site up to date as our plans become implementations and as our implementations are put into production.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Doing this publicly -- and seeking feedback, is something of an experiment. We reserve the right to stop doing this at any time, or to turn off public feedback for any portion of this repository, in case things get out of hand. However, we're hoping that we'll never have to do that, but rather get useful, high-quality, and informed comments from the community!
+v
+Some ground rules for feedback:
+* The usual rules about be respectful, no personal attacks, etc. that's par for the course in public discusson forums applies
+* We strongly request that people not simply chime in with unsupported opinions, but rather:
+  + provide references to papers or articles that support your suggestions (bonus points for articles on arXiv :smile:)
+  + or provided detailed descriptions based on your own actual expeirence with similar projects
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
 
 giscus should show up below here
 
-
-<!-- <script src="fixcolortheme.js">
-
-</script>
 
 
 <script src="https://giscus.app/client.js"
@@ -38,5 +32,5 @@ giscus should show up below here
         crossorigin="anonymous"
         async>
 
-</script> -->
+</script>
 
