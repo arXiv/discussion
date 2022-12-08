@@ -11,6 +11,7 @@ function setColorTheme() {
     // But for some reason that's not a variable in the theme
     // So we programmatically man-handle --md-default-bg-color on each change of color scheme
     document.getElementsByTagName('body')[0].setAttribute("style", "--md-default-bg-color: #201f22")
+    document.getElementsByTagName('body')[0].setAttribute("style", "--md-default-fg-color: #d8d8d8")
   } 
   else {
     document.body.setAttribute("data-md-color-scheme", "default")

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "data-strict": "0",
       "data-reactions-enabled": "1",
       "data-emit-metadata": "0",
-      "data-input-position": "top",
+      "data-input-position": "bottom",
       "data-lang": "en",
       "data-theme": "themes/preferred_color_scheme.css",
       "crossorigin": "anonymous",
