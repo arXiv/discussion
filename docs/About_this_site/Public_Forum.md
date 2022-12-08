@@ -12,5 +12,5 @@ Some ground rules for feedback:
 ---
 The technology used:
 
-* Everything is in github
-* The discusson comments are in github
+* Everything is in GitHub
+* The discusson comments are in GitHub Discussions
