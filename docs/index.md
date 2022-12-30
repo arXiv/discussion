@@ -1,9 +1,9 @@
 # Introduction
 
-CE stands for Cloud Edition.
+This site contains documentation for the technical aspects of arXiv -- i.e. the software engineering, operational processes, etc., that go into keep [arxiv.org]() running and performing its mission day after day.
 
-This is the public documentation site for the project to move arXiv to the cloud. We will use this place to share our plans with the arXiv community, and also seek feedback and suggestions from the community. We will try to keep this site up to date as our plans become implementations and as our implementations are put into production.
+This is not the place to find information about how to use arXiv. For information about submitting papers, reading papers, formating, etc, please refer to the [arXiv help pages](arxiv.org/help). 
 
-We're inviting community participation in this effort. See [Open For public Discussion](About_this_site/Public_Forum) 
+The primary, but not exclusive focus of this site is to document the technical revamp of arXiv that's we're calling arXiv CE (Cloud Edition). As the name implies, this is the project to host arXiv in the Cloud. Read more about that on the [arXIv CE](arXiv_CE) page.
 
-
+***As an experiment***, we've inviting community participation in this effort.  See [Open For public Discussion](About_this_site/Public_Forum.md) for the details.
