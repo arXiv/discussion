@@ -5,10 +5,10 @@ With the [arXiv CE]() project, we'll be making a lot of changes to the way arXiv
 
 Some ground rules for commenting:
 
-* All commentors must agree to adibe by the overall [arXiv Code of Conduct](https://arxiv.org/help/policies/code_of_conduct)
+* All participants must agree to adibe by the overall [arXiv Code of Conduct](https://arxiv.org/help/policies/code_of_conduct)
 * Please don't just chime in with unsupported opinions, but rather:
      + provide references to papers or articles that support your suggestions (bonus points for papers on arXiv &#x1f642;).
-     + or provided detailed descriptions based on your own actual expeirence with similar projects.
+     + or provided detailed descriptions based on your own actual expeirence with similar projects/technologies
 * We welcome spirited discussions, but please don't resort to personal attacks.
 * We research the right to moderate posts, and even ban user if things get out of hand. We're hoping we won't ever have to this.
 ---
