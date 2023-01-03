@@ -11,6 +11,7 @@ plugins:
 theme:
   name: material
   logo: arxiv-logomark-small.svg
+  custom_dir: overrides
   favicon: img/favicon.ico
   palette:
 
@@ -36,7 +37,7 @@ extra_javascript:
 extra_css:
   - https://fonts.googleapis.com/css?family=IBM Plex Sans
   - https://fonts.googleapis.com/css?family=Catamaran
-  - arxiv-parent-theme.css
+  - stylesheets/extra.css
 
 plugins:
   - macros
