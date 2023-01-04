@@ -1,0 +1,1 @@
+alert("You loaded alert.js!")

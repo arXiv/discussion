@@ -1,0 +1,1272 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.2">
+    
+    
+      
+        <title>Proposal for PDF CDN - arXiv Tech</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f56500e0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM Plex Sans">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- new favicon config and versions by realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/favicon-16x16.png">
+<link rel="manifest" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/site.webmanifest">
+<link rel="mask-icon" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/safari-pinned-tab.svg" color="#b31b1b">
+<link rel="shortcut icon" href="https://static.arxiv.org/static/base/1.0.0a4/images/icons/favicon.ico">
+<link rel="stylesheet" href="https://use.typekit.net/kkn2tyz.css">
+<meta name="msapplication-TileColor" content="#b31b1b">
+<meta name="msapplication-config" content="images/icons/browserconfig.xml">
+<meta name="theme-color" content="#b31b1b">
+<!-- end favicon config -->
+<title> | arXiv e-print repository</title>
+<script defer src="https://static.arxiv.org/static/base/1.0.0a4/fontawesome-free-5.11.2-web/js/all.js"></script>
+<link rel="stylesheet" href="https://static.arxiv.org/static/base/1.0.0a4/css/arxivstyle.css" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreClass: '.*',
+      processClass: 'mathjax.*'
+    },
+    TeX: {
+        extensions: ["AMSmath.js", "AMSsymbols.js", "noErrors.js"],
+        noErrors: {
+          inlineDelimiters: ["$","$"],
+          multiLine: false,
+          style: {
+            "font-size": "normal",
+            "border": ""
+          }
+        }
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script src='//static.arxiv.org/MathJax-2.7.3/MathJax.js'></script>
+<script src="https://static.arxiv.org/static/base/1.0.0a4/js/notification.js"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#proposal-for-pdf-cdn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+<!-- contains Cornell logo and sponsor statement -->
+<div class="attribution" role="complementary">
+  <img src="/discussion/assets/cornell-reduced-white.png" height="auto" width="200" title="Cornell logo" alt="Logo for Cornell University">
+  <p class="sponsors"><a href="https://arxiv.org/about/funding">We gratefully acknowledge support from the Simons Foundation, member institutions, and all contributors.</a></p>
+</div>
+
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="arXiv Tech" class="md-header__button md-logo" aria-label="arXiv Tech" data-md-component="logo">
+      
+  <img src="../../arxiv-logomark-small.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Tech
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Proposal for PDF CDN
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+          
+        
+      </form>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arXiv/discussion/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="arXiv Tech" class="md-nav__button md-logo" aria-label="arXiv Tech" data-md-component="logo">
+      
+  <img src="../../arxiv-logomark-small.svg" alt="logo">
+
+    </a>
+    arXiv Tech
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arXiv/discussion/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Wrap everything with a macro to reduce file roundtrips (see #2213) -->
+
+
+<!-- Render current and nested navigation items -->
+
+
+  <!-- Determine class according to state -->
+  
+  
+
+  <!-- Main navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Wrap everything with a macro to reduce file roundtrips (see #2213) -->
+
+
+<!-- Render current and nested navigation items -->
+
+
+  <!-- Determine class according to state -->
+  
+  
+
+  <!-- Main navigation item with nested items -->
+  
+
+    <!-- Determine whether to render item as a section -->
+    
+
+    <!-- Render item with nested items -->
+    <li class="md-nav__item md-nav__item--nested">
+
+      <!-- Active checkbox expands items contained within nested section -->
+      
+      
+        <input
+          class="md-nav__toggle md-toggle"
+          data-md-toggle="__nav_2"
+          type="checkbox"
+          id="__nav_2"
+          
+        />
+      
+
+      <!-- Determine all nested items that are index pages -->
+      
+      
+
+      <!-- Render toggle to expand nested items -->
+      
+        
+        
+        <label
+          class="md-nav__link"
+          for="__nav_2"
+          tabindex="0"
+          aria-hidden="true"
+          aria-expanded="false">
+          About this site
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+      <!-- Render link to index page + toggle -->
+      
+
+      <!-- Render nested navigation -->
+      <nav
+        class="md-nav"
+        aria-label="About this site"
+        data-md-level="1"
+      >
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          About this site
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+
+          <!-- Render nested item list -->
+          
+            
+              
+
+  <!-- Determine class according to state -->
+  
+  
+
+  <!-- Main navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../About_this_site/Public_Forum.html" class="md-nav__link">
+        Public Forum
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2022 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Wrap everything with a macro to reduce file roundtrips (see #2213) -->
+
+
+<!-- Render current and nested navigation items -->
+
+
+  <!-- Determine class according to state -->
+  
+  
+    
+  
+
+  <!-- Main navigation item with nested items -->
+  
+
+    <!-- Determine whether to render item as a section -->
+    
+
+    <!-- Render item with nested items -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+      <!-- Active checkbox expands items contained within nested section -->
+      
+      
+        <input
+          class="md-nav__toggle md-toggle"
+          data-md-toggle="__nav_3"
+          type="checkbox"
+          id="__nav_3"
+          checked
+        />
+      
+
+      <!-- Determine all nested items that are index pages -->
+      
+      
+
+      <!-- Render toggle to expand nested items -->
+      
+        
+        
+        <label
+          class="md-nav__link"
+          for="__nav_3"
+          tabindex="0"
+          aria-hidden="true"
+          aria-expanded="false">
+          arXiv CE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+      <!-- Render link to index page + toggle -->
+      
+
+      <!-- Render nested navigation -->
+      <nav
+        class="md-nav"
+        aria-label="arXiv CE"
+        data-md-level="1"
+      >
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          arXiv CE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+
+          <!-- Render nested item list -->
+          
+            
+              
+
+  <!-- Determine class according to state -->
+  
+  
+
+  <!-- Main navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        arXiv-CE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+
+  <!-- Determine class according to state -->
+  
+  
+    
+  
+
+  <!-- Main navigation item with nested items -->
+  
+
+    <!-- Determine whether to render item as a section -->
+    
+
+    <!-- Render item with nested items -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+      <!-- Active checkbox expands items contained within nested section -->
+      
+      
+        <input
+          class="md-nav__toggle md-toggle"
+          data-md-toggle="__nav_3_2"
+          type="checkbox"
+          id="__nav_3_2"
+          checked
+        />
+      
+
+      <!-- Determine all nested items that are index pages -->
+      
+      
+
+      <!-- Render toggle to expand nested items -->
+      
+        
+        
+        <label
+          class="md-nav__link"
+          for="__nav_3_2"
+          tabindex="0"
+          aria-hidden="true"
+          aria-expanded="false">
+          Browsing & Searching
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+      <!-- Render link to index page + toggle -->
+      
+
+      <!-- Render nested navigation -->
+      <nav
+        class="md-nav"
+        aria-label="Browsing & Searching"
+        data-md-level="2"
+      >
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Browsing & Searching
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+
+          <!-- Render nested item list -->
+          
+            
+              
+
+  <!-- Determine class according to state -->
+  
+  
+    
+  
+
+  <!-- Main navigation item with nested items -->
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+
+      <!-- Active checkbox expands items contained within nested section -->
+      <input
+        class="md-nav__toggle md-toggle"
+        data-md-toggle="toc"
+        type="checkbox"
+        id="__toc"
+      />
+
+      <!-- Hack: see partials/toc.html for more information -->
+      
+      
+        
+      
+
+      <!-- Render table of contents, if not empty -->
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc" tabindex="0">
+          Proposal for PDF CDN
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a
+        href="pdf-cdn.html"
+        class="md-nav__link md-nav__link--active"
+      >
+        Proposal for PDF CDN
+      </a>
+
+      <!-- Show table of contents -->
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-version" class="md-nav__link">
+    Current version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic" class="md-nav__link">
+    Traffic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput" class="md-nav__link">
+    Throughput
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisions" class="md-nav__link">
+    Revisions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-band-changes" class="md-nav__link">
+    Out of band changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-url-and-link-rot" class="md-nav__link">
+    Persistent URL and link rot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-to-gcp-lb-rules" class="md-nav__link">
+    Limitations to GCP LB rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-custom-404-handling-in-lb" class="md-nav__link">
+    No custom 404 handling in LB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn-cache-keys" class="md-nav__link">
+    CDN Cache keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gs-buckets-versions" class="md-nav__link">
+    GS Buckets versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-symbolic-links-in-gs" class="md-nav__link">
+    No symbolic links in GS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloaded-files-end-with-pdf" class="md-nav__link">
+    Downloaded files end with .pdf
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing" class="md-nav__link">
+    Timing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-1" class="md-nav__link">
+    Proposal #1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-proposal" class="md-nav__link">
+    Migration proposal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-2-pdf-service" class="md-nav__link">
+    Proposal #2 PDF service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-cdn-freshness" class="md-nav__link">
+    Caching CDN Freshness
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+
+  <!-- Main navigation item -->
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+
+  <!-- Currently active page -->
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    Goals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+    <nav class="md-nav" aria-label="Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-version" class="md-nav__link">
+    Current version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traffic" class="md-nav__link">
+    Traffic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput" class="md-nav__link">
+    Throughput
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revisions" class="md-nav__link">
+    Revisions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-band-changes" class="md-nav__link">
+    Out of band changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-url-and-link-rot" class="md-nav__link">
+    Persistent URL and link rot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-to-gcp-lb-rules" class="md-nav__link">
+    Limitations to GCP LB rules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-custom-404-handling-in-lb" class="md-nav__link">
+    No custom 404 handling in LB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn-cache-keys" class="md-nav__link">
+    CDN Cache keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gs-buckets-versions" class="md-nav__link">
+    GS Buckets versions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-symbolic-links-in-gs" class="md-nav__link">
+    No symbolic links in GS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloaded-files-end-with-pdf" class="md-nav__link">
+    Downloaded files end with .pdf
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing" class="md-nav__link">
+    Timing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-1" class="md-nav__link">
+    Proposal #1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-proposal" class="md-nav__link">
+    Migration proposal
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposal-2-pdf-service" class="md-nav__link">
+    Proposal #2 PDF service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-cdn-freshness" class="md-nav__link">
+    Caching CDN Freshness
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="proposal-for-pdf-cdn">Proposal for PDF CDN</h1>
+<p>This is a proposal for how to serve PDFs from Google's CDN. This
+proposal will cover how to arrange the PDF files in Google storage,
+the load balancer, any services and the CDN to support the goals.</p>
+<h2 id="goals">Goals</h2>
+<ol>
+<li>Favor using Google products over writing code</li>
+<li>The PDF for the current version is the hot path</li>
+<li>Avoid redundant copies of the PDFs in GS</li>
+<li>Serve current version at <code>https://arxiv.org/pdf/2001.00021.pdf</code></li>
+<li>Serve other versions at <code>https://arxiv.org/pdf/2001.00021v3.pdf</code></li>
+<li>Maintain long standing URL patterns</li>
+<li>Not excessive time to download PDFs</li>
+</ol>
+<p>The only goals we can relax are 1. favor google products, 3. avoid
+redundant copies. We could relax 6 maintain URL patterns but that is
+probably a policy decision. We could relax 7 but it doesn't seem too
+relevant.</p>
+<h2 id="considerations">Considerations</h2>
+<h3 id="current-version">Current version</h3>
+<p>There are two main kinds of URLs we need to handle,
+the current version URLs and the versioned URLs. The current version
+URLs have filenames like <code>1234.12345.pdf</code> that lack the vN version
+number. These are expected to provide the user with the most current
+version of that paper. This can return different content at different
+times due to revisions to the paper. These revisions are not more than
+once a day. The versioned have a vN like <code>1234.12345v3.pdf</code> and are
+expected to return the PDF for that version. These are expected to
+almost never change.</p>
+<h3 id="traffic">Traffic</h3>
+<p>Looking at a 1h window on 2022-10-28. Successful PDF
+requests with version number: 3766 Successful PDF requests without
+version number: 42421.</p>
+<h3 id="throughput">Throughput</h3>
+<p>427000 bytes/s for successful PDFs over a 1h window on 2022-10-28.</p>
+<h3 id="revisions">Revisions</h3>
+<p>Over the whole corpus about 50% of papers have revisions. About 8% of
+the articles submitted in 2022-10 had versions during the same month.</p>
+<h3 id="out-of-band-changes">Out of band changes</h3>
+<p>There are infrequent changes made outside of the versioning
+system. Jim says they do about 1 or 2 a week. He said that almost all
+of these go through set of utilities that schedule the changes to the
+mirroring system. The admins don't login into the Cornell VMs and make
+changes, they use a Perl script to rsync changes to their laptop, make
+the changes and then use a script to rsync the changes back to the VM
+and schedule the sync request for the mirrors. </p>
+<p>See:
+<a href="https://confluence.cornell.edu/display/arXiv/Hacking+Submissions">confluence: Hacking Submissions</a>
+and <a href="https://confluence.cornell.edu/display/arXiv/Admin+set-up+for+a+local+admin+machine">confluence Admin set-up for a local admin machine</a></p>
+<h3 id="persistent-url-and-link-rot">Persistent URL and link rot</h3>
+<p>arXiv has a history maintaining URLs for the PDFs and abs pages. For
+older PDFs:</p>
+<pre><code>https://arxiv.org/pdf/astro-ph/0606003.pdf
+https://arxiv.org/pdf/astro-ph/0606003v99.pdf
+https://arxiv.org/pdf/astro-ph/0606003
+https://arxiv.org/pdf/astro-ph/0606003v99
+</code></pre>
+<p>For newer:</p>
+<pre><code>https://arxiv.org/pdf/2001.00021 
+https://arxiv.org/pdf/2001.00021v99
+https://arxiv.org/pdf/2001.00021.pdf 
+https://arxiv.org/pdf/2001.00021v99.pdf
+</code></pre>
+<p>It has been the practice at arxiv.org to do an HTTP redirect from
+<code>https://arxiv.org/pdf/2001.00021</code> to
+<code>https://arxiv.org/pdf/2001.00021.pdf</code> in order to have a reasonably
+named download. There are also redirects from HTTP to HTTPS.</p>
+<h3 id="limitations-to-gcp-lb-rules">Limitations to GCP LB rules</h3>
+<p>The GCP LB has URL mapping and rules but
+they are limited. "Path matchers (and URL maps in general) do not
+offer features that function like Apache LocationMatch directives. If
+you have an application that generates dynamic URL paths that have a
+common prefix, such as /videos/hd-abcd and /videos/hd-pqrs, and you
+need to send requests made to those paths to different backend
+services, you might not be able to do that with a URL map. For simple
+cases containing only a few possible dynamic URLs, you might be able
+to create a path matcher with a limited set of path rules. For more
+complex cases, you need to do path-based regular expression matching
+on your backends." see
+<a href="https://cloud.google.com/load-balancing/docs/url-map-concepts#wildcards-regx-dynamic">https://cloud.google.com/load-balancing/docs/url-map-concepts#wildcards-regx-dynamic</a></p>
+<h3 id="no-custom-404-handling-in-lb">No custom 404 handling in LB</h3>
+<p>I also was looking to see if we could
+route all 404s to a service but didn't find anything like that. This issue indicates that this is not a feature:
+<a href="https://issuetracker.google.com/issues/143348697">Allow Cloud Storage users to specify an http status code for 404 pages</a></p>
+<h3 id="cdn-cache-keys">CDN Cache keys</h3>
+<p><a href="https://cloud.google.com/cdn/docs/caching#cache-keys">https://cloud.google.com/cdn/docs/caching#cache-keys</a> GCP can
+include headers and cookies as part of the cache key. Some of the GS
+query parameters are set as default parts of the cache key when the
+back end is a storage bucket.</p>
+<h3 id="gs-buckets-versions">GS Buckets versions</h3>
+<p>CDN can cache based on query parameter
+<code>?generation=1234</code>. It sounds like we can alter earlier versions. The
+generations can be listed.
+<a href="https://cloud.google.com/storage/docs/object-versioning">https://cloud.google.com/storage/docs/object-versioning</a></p>
+<h3 id="no-symbolic-links-in-gs">No symbolic links in GS</h3>
+<p>GS does not support symbolic links. "...there are no plans for gsutil rsync to support operating system-specific file types like symlinks" <a href="https://cloud.google.com/storage/docs/gsutil/commands/rsync">from the gsutil rsync docs</a></p>
+<h3 id="downloaded-files-end-with-pdf">Downloaded files end with .pdf</h3>
+<p>We redirect to a URL that ends with <code>.pdf</code>. This is likely to make the
+downloaded file more useful since OSs will recognize it as a PDF and
+open it with the appropriate viewer. We could achieve the correct
+filename with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition">Content-Disposition HTTP header</a>.</p>
+<h2 id="timing">Timing</h2>
+<p>The normal path at arxiv.org to get a PDF uses a redirect. The abs
+pages have <code>arxiv.org/pdf/astro-ph/0606003</code> and that gets redirected to
+<code>arxiv.org/pdf/astro-ph/0606003.pdf</code>. </p>
+<p>A request for <code>arxiv.org/pdf/astro-ph/0606003</code> is: 58ms for first
+redirect, 655ms for the 2nd request that does the download.</p>
+<p>Google serves <code>astro-ph/0606003v1.pdf</code>: 218ms wait for response, 51ms
+download. This is going directly without any redirects.</p>
+<p>These times omit DNS and SSL. These don't need to be top level
+concerns but we do expect users to come without keep alive from email
+clients. To arxiv.org I'm seeing these as around DNS 54ms, initial
+connection+ssl: 135ms.  To google I'm seeing 50ms, initial
+connection+ssl: 95ms.</p>
+<p>These times are not averages, they are for single requests.</p>
+<h2 id="proposal-1">Proposal #1</h2>
+<p>It seems the goal of no-code conflicts with goals of no redundancy and
+current version. In discussing this Nov. 2 2022 Charles F. suggested
+we relax the redundancy goal.</p>
+<p>The mappings look like:</p>
+<pre><code>Served URL                                GS URL
+https//arxiv.org/pdfs/1111.22222.pdf   -&gt; gs://pdf-bucket/pdf/1111.22222.pdf
+https//arxiv.org/pdfs/1111.22222v1.pdf -&gt; gs://pdf-bucket/pdf/1111.22222v1.pdf
+https//arxiv.org/pdfs/1111.22222v2.pdf -&gt; gs://pdf-bucket/pdf/1111.22222v2.pdf
+</code></pre>
+<p>And in the case of v2 being the most recent version, 1111.22222.pdf
+would be the same content as 1111.22222v2.pdf</p>
+<ol>
+<li>PDFs in GS arranged with the keys in a way that allows them to be
+   served as a web site with the expected URL paths. Redundent files
+   would be stored if the same content needed to be served from
+   different paths.</li>
+<li>The bucket these are in is set as "serve as public website"</li>
+<li>A LB and CDN is setup to serve these at some domain name.</li>
+<li>A sync service would copy the content to the correct GS bucket
+   locations at announce time.</li>
+</ol>
+<p>I don't see an API that says <code>put_content_at_CDN_key(key,
+content)</code>. We can think of a service as that API. The service gets a
+request from the CDN and then it can be programmed to put any content
+there.</p>
+<p>Brian Caruso initially suggested we reject this proposal. A small app
+the mediates the URL to object mapping is a large gain of flexibility
+for little additional complexity. The state of the objects in the GS
+becomes much simpler.</p>
+<ol>
+<li>The goal of no-code, GCP only-products forces limitations on what
+   URL to file mappings are possible due to the limitations of the GCP
+   products.</li>
+<li>We would end up with a system where the state of the bucket was
+   constantly changing to support the URL mapping. The storage and the
+   keys used should be limited to the concerns of storage and not have
+   to also carry the concerns of URL mapping.</li>
+<li>It would be easier to test that an app returns the correct file for
+   a URL than to test CDN/LB/GS/obj-naming-conventions.</li>
+</ol>
+<h2 id="migration-proposal">Migration proposal</h2>
+<p>This is a proposal to use the existing <code>arxiv.org</code> infrastructure at
+Cornell but serve the PDFs from a CDN as an intermediate step towards
+an all on cloud stance.</p>
+<ol>
+<li>Implement the one of the proposals but have it at a host name like
+   <code>cloud.arxiv.org</code></li>
+<li>At announce time, build PDFs and sync to Google</li>
+<li>Add <code>/pdf</code> path to arxiv-browse that uses this logic<ol>
+<li>Check if CDN is fresh</li>
+<li>yes? HTTP redirect to CDN</li>
+<li>no? reverse proxy the legacy PDF endpoint</li>
+</ol>
+</li>
+</ol>
+<p>The check of CDN freshness could be cached. The reverse proxy avoids
+an unnecessary HTTP redirect on the non-fresh path.</p>
+<h2 id="proposal-2-pdf-service">Proposal #2 PDF service</h2>
+<p>This is a proposal for what would be ideal without any legacy concerns
+other than URL patterns.</p>
+<ol>
+<li>PDFs in GS with version numbers</li>
+<li>arxiv.org presents URLs to PDFs like https://arxiv.org/pdf/1234.12345.pdf</li>
+<li>The <code>/pdf</code> path URL mapped at the LB a backend with a CDN <code>pdf-service</code> an app running on Cloud Run</li>
+<li>That service goes to the GS and streams the content back to the client</li>
+<li>Cache warming for new PDFs as part of the announce process</li>
+</ol>
+<p>This meets all goals except for 1 no-code. This proposal was rejected
+due to the decision to relax the redundency goal and that we could
+move from proposal #1 to #2 in the future if needed.</p>
+<h2 id="caching-cdn-freshness">Caching CDN Freshness</h2>
+<p>The CDN freshness will be checked from Cornell by doing a HEAD request
+to the CDN and comparing the <code>last-modified</code> time with the mtime of
+the Cornell PDF and the mtime of the Cornell PDF with the mtime of the
+source.</p>
+<p>One question that came up is about the CDN/GS <code>last-modified</code> time. Is
+it the mtime of the original PDF at Cornell or the time the sync
+happened? We can avoid this question by running <code>gcloud rsync -P</code>
+which will preserve the access/modification timestamps.</p>
+<p>But even then are there problems?</p>
+<p>Yes, once a HEAD request is done from Cornell, there is a race
+condition between the client download and the possibility of a change
+of the PDF. The HEAD then HTTP Redirect transfers the happens first
+ordering data about <code>PDF_change-&gt;PDF_sync</code> to the client. But in the
+PDF at Cornell could change creating a new ordering.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+<div class="arxiv-footer" role="navigation" aria-label="Secondary">
+  <div class="column">
+    <ul >
+      <li><a href="https://arxiv.org/about">About</a></li>
+      <li><a href="https://arxiv.org/help">Help</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <ul>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" class="icon filter-black" role="presentation"><title>contact arXiv</title><desc>Click here to contact arXiv</desc><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+        <a href="https://arxiv.org/help/contact"> Contact</a>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" class="icon filter-black" role="presentation"><title>subscribe to arXiv mailings</title><desc>Click here to subscribe</desc><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+        <a href="https://arxiv.org/help/subscribe"> Subscribe</a>
+      </li>
+    </ul>
+  </div>
+  <div class="column">
+    <ul>
+      <li><a href="https://arxiv.org/help/license">Copyright</a></li>
+      <li><a href="https://arxiv.org/help/policies/privacy_policy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="column sorry-app-links">
+      <ul >
+        <li><a href="https://arxiv.org/help/web_accessibility">Web Accessibility Assistance</a></li>
+        <li>
+          <p class="help">
+            <a class="a11y-main-link" href="https://status.arxiv.org" target="_blank">arXiv Operational Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="8" class="icon filter-dark_grey" role="presentation"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a><br>
+            Get status notifications via
+            <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/email/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="12" class="icon filter-black" role="presentation"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>email</a>
+            or <a class="is-link" href="https://subscribe.sorryapp.com/24846f03/slack/new" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="12" class="icon filter-black" role="presentation"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>slack</a>
+          </p>
+        </li>
+      </ul>
+    </div>
+</div>
+<script>
+  for (var link of document.getElementsByClassName("md-nav__link")) {
+    link.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        e.target.click();
+        e.target.setAttribute('aria-hidden', e.target.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
+        e.target.setAttribute('aria-expanded', e.target.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
+      }
+    });
+  }
+</script>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
+      
+        <script src="../../fixcolortheme.js"></script>
+      
+        <script src="../../load-giscus.js"></script>
+      
+    
+  </body>
+</html>
