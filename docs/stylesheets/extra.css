@@ -45,6 +45,8 @@
   --footer-fg-color:  var(--md-primary-fg-color--lightest);
   --footer-bg-color:  hsla(var(--md-hue),10%,7%,1);
   --shadow:           black;
+  --md-default-bg-color: #201f22;
+  --md-default-fg-color: #d8d8d8;
 }
 
 body {
