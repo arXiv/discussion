@@ -103,16 +103,4 @@
       </ul>
     </div>
 </div>
-<script>
-  for (var link of document.getElementsByClassName("md-nav__link")) {
-    link.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        e.target.click();
-        e.target.setAttribute('aria-hidden', e.target.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
-        e.target.setAttribute('aria-expanded', e.target.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
-      }
-    });
-  }
-</script>
 {% endblock footer %}
