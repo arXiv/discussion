@@ -211,6 +211,11 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
   }
 }
 
+/*GISCUS ELEMENTS */
+.gsc-comments-count, .gsc-reactions-count {
+  color: hsla(var(--md-typeset-color)),100%,100%,.5);
+}
+
 /*ARXIV FOOTER*/
 .arxiv-footer {
   display: flex;
