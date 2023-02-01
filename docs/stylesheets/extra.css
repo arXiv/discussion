@@ -164,6 +164,9 @@ pre .md-clipboard {
   font-family: "ibm-plex-sans-condensed";
   font-weight: 700;
 }
+.md-footer__title .md-ellipsis {
+  overflow: visible;
+}
 @media all and (max-width: 576px) {
   .attribution {
     flex-direction: column;
@@ -213,6 +216,7 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
   background-color: var(--footer-bg-color);
   padding: 0 1em;
   font-family: "freight-sans-pro", sans-serif;
@@ -260,6 +264,11 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
 }
 .arxiv-footer .sorry-app-links .a11y-main-link svg.icon {
   margin-bottom: -3px !important;
+}
+@media all and (max-width: 959px) {
+  .arxiv-footer .column {
+    flex: 50%;
+  }
 }
 @media all and (max-width: 576px) {
   .arxiv-footer {
