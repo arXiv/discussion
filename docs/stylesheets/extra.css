@@ -145,7 +145,7 @@ pre .md-clipboard {
  display: block;
  max-width: 400px;
  font-size: 1.4em !important;
- font-family: freight-sans-pro, sans-serif;
+ font-family: "freight-sans-pro", sans-serif;
  font-weight: 600;
  line-height: 1.5em;
  margin:.5em;
@@ -215,6 +215,8 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
   align-items: flex-start;
   background-color: var(--footer-bg-color);
   padding: 0 1em;
+  font-family: "freight-sans-pro", sans-serif;
+  font-weight: 400;
 }
 .arxiv-footer .column {
   padding: 0.75rem;
