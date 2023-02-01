@@ -47,6 +47,7 @@
   --shadow:           black;
   --md-default-bg-color: #201f22;
   --md-default-fg-color: #d8d8d8;
+  --color-fg-default: var(--md-typeset-color);
 }
 
 body {
@@ -209,11 +210,6 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
   .md-content {
     margin-bottom: 6em;
   }
-}
-
-/*GISCUS ELEMENTS */
-.gsc-comments-count, .gsc-reactions-count {
-  color: hsla(var(--md-typeset-color)),100%,100%,.5);
 }
 
 /*ARXIV FOOTER*/
