@@ -121,6 +121,10 @@ a.button-large:hover, a.button-reg:hover {
 }
 
 /*Pre and code blocks*/
+.md-typeset code{
+  padding: .5em;
+  font-weight: 500;
+}
 .md-typeset pre>code {
   padding: 1.5em 1em;
 }
@@ -156,6 +160,10 @@ pre .md-clipboard {
   text-decoration: underline;
   color: white !important;
 }
+.md-ellipsis {
+  font-family: "ibm-plex-sans-condensed";
+  font-weight: 700;
+}
 @media all and (max-width: 576px) {
   .attribution {
     flex-direction: column;
@@ -168,13 +176,16 @@ pre .md-clipboard {
 }
 
 /*NAVIGATION*/
+nav.md-nav.md-nav--primary, nav.md-nav.md-nav--secondary {
+  font-family: "ibm-plex-sans-condensed";
+}
 nav.md-nav.md-nav--primary .md-nav__list .md-nav__item label,
 nav.md-nav.md-nav--primary .md-nav__list .md-nav__item a {
-  font-weight: 600;
+  font-weight: 700;
 }
 nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list label,
 nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list a {
-  font-weight: 500;
+  font-weight: 400;
 }
 @media all and (min-width: 1220px) {
   nav.md-nav.md-nav--primary .md-nav__title {
