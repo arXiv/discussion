@@ -47,7 +47,7 @@
   --shadow:           black;
   --md-default-bg-color: #201f22;
   --md-default-fg-color: #d8d8d8;
-  --color-fg-default: var(--md-typeset-color);
+  --color-fg-default: var(--md-typeset-color) !important;
 }
 
 body {
