@@ -164,7 +164,6 @@ pre .md-clipboard {
 }
 .md-ellipsis {
   font-family: "ibm-plex-sans-condensed";
-  font-weight: 700;
 }
 @media all and (max-width: 576px) {
   .attribution {
