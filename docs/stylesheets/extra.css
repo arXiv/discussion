@@ -12,7 +12,7 @@
   --color-access-lime:  #c4d82e;
   --color-links:        #1e8bc3;
   /*fonts*/
-  --md-text-font: "freight-sans-pro";
+  --md-text-font: "ibm-plex-sans-condensed", sans-serif;
   --md-code-font-family: "ibm-plex-mono", monospace;
   /*default theme colors*/
   --md-primary-fg-color:  var(--color-library-grey);
@@ -47,13 +47,13 @@
   --shadow:           black;
   --md-default-bg-color: #201f22;
   --md-default-fg-color: #d8d8d8;
-  --color-fg-default: var(--md-typeset-color) !important;
 }
 
 body {
-  font-family: freight-sans-pro, sans-serif;
+  font-family: var(--md-text-font);
   font-style: normal;
   font-weight: 400;
+  background-color: #f6f5f4;
 }
 .md-header__button.md-logo {
   margin: 0;
@@ -66,7 +66,7 @@ body {
   display: none !important;
 }
 p {
-  font-family: freight-sans-pro, sans-serif;
+  font-family: var(--md-text-font);
   font-style: normal;
 }
 a { transition: all 1s ease-in-out; }
@@ -79,10 +79,11 @@ a:hover, a:focus {
 a:hover { transition: all 0.5s;}
 .md-typeset hr { margin: 1em 0 !important; }
 h1, h2, h3, h4, h5 {
-  font-family: freight-sans-pro, sans-serif;
+  font-family: "ibm-plex-sans-condensed", sans-serif;
+  font-weight: 700;
 }
 h2 { margin-top: 1em !important; }
-.intro { font-size: 1.5em; font-family: freight-text-pro, serif; }
+.intro { font-size: 1.5em; font-family: "ibm-plex-sans-condensed"; font-weight: 700; }
 .floatl { float: left; }
 .floatr { float: right; }
 .center { text-align: center; }
@@ -165,9 +166,6 @@ pre .md-clipboard {
   font-family: "ibm-plex-sans-condensed";
   font-weight: 700;
 }
-.md-footer__title .md-ellipsis {
-  overflow: visible;
-}
 @media all and (max-width: 576px) {
   .attribution {
     flex-direction: column;
@@ -191,6 +189,10 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
 nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list a {
   font-weight: 400;
 }
+nav.md-nav.md-nav--secondary .md-nav__title {
+  background: transparent;
+  box-shadow: none;
+}
 @media all and (min-width: 1220px) {
   nav.md-nav.md-nav--primary .md-nav__title {
     display: none;
@@ -210,6 +212,11 @@ nav.md-nav.md-nav--primary .md-nav__list .md-nav__item nav.md-nav .md-nav__list 
   .md-content {
     margin-bottom: 6em;
   }
+}
+
+/*GISCUS ELEMENTS */
+.gsc-comments-count, .gsc-reactions-count {
+  color: hsla(var(--md-typeset-color)),100%,100%,.);
 }
 
 /*ARXIV FOOTER*/
