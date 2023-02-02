@@ -30,6 +30,8 @@
   --footer-fg-color:  black;
   --footer-bg-color:  var(--md-primary-fg-color--lightest);
   --shadow:           var(--color-open-blue);
+  --md-default-bg-color:   #f6f5f4;
+
 }
 /* slate theme (dark mode) */
 [data-md-color-scheme="slate"] {
@@ -53,7 +55,7 @@ body {
   font-family: var(--md-text-font);
   font-style: normal;
   font-weight: 400;
-  background-color: #f6f5f4;
+  bakcground-color: var(--md-default-bg-color);
 }
 .md-header__button.md-logo {
   margin: 0;
