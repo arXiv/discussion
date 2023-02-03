@@ -9,10 +9,12 @@ plugins:
   - search
 theme:
   name: material
+  logo: arxiv-logomark-small.svg
+  custom_dir: overrides
+  favicon: img/favicon.ico
   features:
-    - content.tooltips
-    - navigation.indexes
-    - navigation.footer
+    - toc.indexes
+    - toc.follow
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
