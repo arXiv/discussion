@@ -26,7 +26,8 @@
   --blockquote-fg-color:  black;
   --blockquote-bg-color:  var(--md-primary-fg-color--lightest);
   --md-code-fg-color:     black;
-  --md-code-bg-color:     var(--md-primary-fg-color--lightest);
+  --md-code-bg-color:     #ebe6e0;
+  --code-border-color:    #c3bfba;
   --footer-fg-color:  black;
   --footer-bg-color:  var(--md-primary-fg-color--lightest);
   --shadow:           var(--color-open-blue);
@@ -42,6 +43,7 @@
   --md-accent-bg-color:   hsla(var(--md-hue),10%,7%,1);
   --md-code-fg-color:     var(--md-primary-fg-color--lightest);
   --md-code-bg-color:     black;
+  --code-border-color:    black;
   --blockquote-fg-color:  var(--md-primary-fg-color--lightest);
   --blockquote-bg-color:  hsla(var(--md-hue),10%,7%,1);
   --footer-fg-color:  var(--md-primary-fg-color--lightest);
@@ -131,6 +133,10 @@ a.button-large:hover, a.button-reg:hover {
 }
 .md-typeset pre>code {
   padding: 1.5em 1em;
+  border-color: var(--code-border-color);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
 }
 pre .md-clipboard {
   color: var(--md-code-fg-color);
