@@ -11,6 +11,7 @@
   --color-cool-wash:    #f7fafc;
   --color-access-lime:  #c4d82e;
   --color-links:        #1e8bc3;
+  --color-headers:      #a84c45;
   /*fonts*/
   --md-text-font: "freight-sans-pro";
   --md-code-font-family: "ocr-a-std";
@@ -33,6 +34,7 @@
 }
 /* slate theme (dark mode) */
 [data-md-color-scheme="slate"] {
+  --color-headers:        #d9bfcf;
   --md-hue: 35;
   --md-default-bg-color:  hsla(var(--md-hue),10%,10%,1);
   --md-typeset-color:     var(--color-warm-wash);
@@ -79,6 +81,7 @@ a:hover { transition: all 0.5s;}
 .md-typeset hr { margin: 1em 0 !important; }
 h1, h2, h3, h4, h5 {
   font-family: freight-sans-pro, sans-serif;
+  color: var(--color-headers);
 }
 h2 { margin-top: 1em !important; }
 .intro { font-size: 1.5em; font-family: freight-text-pro, serif; }

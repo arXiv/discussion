@@ -13,6 +13,9 @@ theme:
   logo: arxiv-logomark-small.svg
   custom_dir: overrides
   favicon: img/favicon.ico
+  features:
+    - toc.indexes
+    - toc.follow
   palette:
 
     # Palette toggle for light mode

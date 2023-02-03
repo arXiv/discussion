@@ -10,6 +10,7 @@
   --md-typeset-a-color: #849bf7;
   --md-default-bg-color--dark: #201f22;
   --md-text-font-family:"IBM Plex Sans", Roboto,-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  --tech-heading-color: #A84C45;
 }
 
 body {
@@ -70,6 +71,8 @@ a:hover {
   font-family: freight-sans-pro, sans-serif;
   font-style: normal;
   font-weight: 600;
+  font-size: 32pt;
+  color: var(--tech-heading-color);
 }
 .sr-only {
   position:absolute;
