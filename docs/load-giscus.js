@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
       "data-emit-metadata": "0",
       "data-input-position": "bottom",
       "data-lang": "en",
-      "data-theme": "themes/preferred_color_scheme.css",
+      "data-theme": "https://github.com/arXiv/discussion/tree/master/docs/stylesheets/arxiv-giscus-theme.css",
       "crossorigin": "anonymous",
       "async": "",
   };

@@ -39,6 +39,7 @@ extra_javascript:
   - load-giscus.js
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/arxiv-giscus-theme.css
 extra:
   homepage: https://arxiv.org
 markdown_extensions:
