@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
       "data-emit-metadata": "0",
       "data-input-position": "bottom",
       "data-lang": "en",
-      "data-theme": "https://github.com/arXiv/discussion/tree/master/docs/stylesheets/arxiv-giscus-theme.css",
-      "crossorigin": "use-credentials",
+      "data-theme": "themes/preferred_color_scheme.css",
+      "crossorigin": "anonymous",
       "async": "",
   };
 
@@ -19,4 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const giscusScript = document.createElement("script");
   Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
   document.getElementsByTagName("article")[0].appendChild(giscusScript);
+
+  // Load some of our css over theirs
+  const prims = document.querySelectorAll(".color-text-primary");
+  const curColor = getComputedStyle(document.documentElement).getPropertyValue('--md-typeset-color');
+  prims.forEach((obj) => {obj.style.color = curColor});
+  console.log(curColor);
 })
