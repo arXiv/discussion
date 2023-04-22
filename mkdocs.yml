@@ -1,4 +1,4 @@
-site_name: Technical Documentation
+site_name: arXiv Internals
 
 docs_dir: docs
 
@@ -16,6 +16,7 @@ theme:
     - toc.indexes
     - toc.follow
     - content.code.copy
+    - navigation.indexes
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
