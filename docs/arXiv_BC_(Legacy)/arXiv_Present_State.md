@@ -1,4 +1,4 @@
-# arXiv legacy tech
+# arXiv Legacy System
 
 This page describes the state of arXiv as it has generally been from 2010 through the start of 2023.
 
