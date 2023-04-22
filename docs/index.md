@@ -1,6 +1,6 @@
 # Introduction
 
-This site contains documentation for the technical aspects of arXiv -- i.e. the software engineering, operational processes, etc., that go into keep [arxiv.org]() running and performing its mission day after day.
+This site describes the inner workings of arxiv.org &ndash; the software engineering, operational processes, etc., that go into keep [arxiv.org]() running and performing its mission day after day.
 
 This is not the place to find information about how to use arXiv. For information about submitting papers, reading papers, formating, etc, please refer to the [arXiv help pages](arxiv.org/help). 
 
